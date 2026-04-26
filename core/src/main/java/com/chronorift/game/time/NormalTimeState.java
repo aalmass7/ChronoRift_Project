@@ -1,28 +1,14 @@
 package com.chronorift.game.time;
 
-public class NormalTimeState implements TimeState{
-    @Override
-    public String getName() {
-        return "Normal Time";
-    }
+public class NormalTimeState extends AbstractTimeState{
 
-    @Override
-    public float getPlayerSpeedMultiplier() {
-        return 1.0f;
-    }
-
-    @Override
-    public float getEnemySpeedMultiplier() {
-        return 1.0f;
-    }
-
-    @Override
-    public float getProjectileSpeedMultiplier() {
-        return 1.0f;
-    }
-
-    @Override
-    public float getCooldownMultiplier() {
-        return 1.0f;
+    public NormalTimeState() {
+        super(
+            "Normal Time",
+            1.0f,
+            1.0f,
+            1.0f,
+            1.0f
+        );
     }
 }
