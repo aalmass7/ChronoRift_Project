@@ -1,4 +1,7 @@
 package com.chronorift.game.decorator;
 
-public class PlayerStats {
+public interface PlayerStats {
+    float moveSpeed();
+    float damageMultiplier();
+    float resistance();
 }
