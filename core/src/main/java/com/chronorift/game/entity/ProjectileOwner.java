@@ -1,4 +1,6 @@
 package com.chronorift.game.entity;
 
-public class ProjectileOwner {
+public enum ProjectileOwner {
+    PLAYER,
+    ENEMY
 }
