@@ -1,20 +1,19 @@
 package com.chronorift.game.time;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TimeStateFactory {
 
     private TimeStateFactory() {
     }
 
-    public static TimeState create(TimeStateType type) {
-        if (type == null) {
-            throw new IllegalArgumentException("TimeStateType cannot be null");
-        }
-
-        return switch (type) {
-            case NORMAL -> new NormalTimeState();
-            case SLOW_MOTION -> new SlowMotionState();
-            case FROZEN -> new FrozenTimeState();
-            case REVERSED -> new ReversedTimeState();
-        };
+    public static List<TimeState> createStates() {
+        List<TimeState> states = new ArrayList<>();
+        states.add(new NormalTimeState());
+        states.add(new SlowMotionState());
+        states.add(new FrozenTimeState());
+        states.add(new ReversedTimeState());
+        return states;
     }
 }
