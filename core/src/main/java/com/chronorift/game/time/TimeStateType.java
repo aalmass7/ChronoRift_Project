@@ -4,5 +4,6 @@ public enum TimeStateType {
     NORMAL,
     SLOW_MOTION,
     FROZEN,
-    REVERSED
+    REVERSED,
+    BOSS
 }
