@@ -1,21 +1,27 @@
 package com.chronorift.game.time;
 
+import com.badlogic.gdx.graphics.Color;
+
 public interface TimeState {
     String getName();
 
-    float getPlayerSpeedMultiplier();
+    String getDescription();
 
-    float getEnemySpeedMultiplier();
+    float playerSpeedMultiplier();
 
-    float getProjectileSpeedMultiplier();
+    float enemySpeedMultiplier();
 
-    float getCooldownMultiplier();
+    float projectileSpeedMultiplier();
 
-    default boolean isMovementReversed() {
-        return false;
+    boolean reverseControls();
+
+    Color accentColor();
+
+    default TimeStateType effectType() {
+        return TimeStateType.NORMAL;
     }
 
-    default boolean isInputDelayed() {
-        return false;
+    default void update(float delta) {
+        // Static time states do not need per-frame updates.
     }
 }

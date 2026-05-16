@@ -1,46 +1,46 @@
 package com.chronorift.game.time;
 
-public class TimeContext {
+import java.util.List;
 
-    private TimeState currentState;
+public class TimeContext {
+    private final List<TimeState> states;
+    private int index;
+    private TimeState zoneLockedState;
 
     public TimeContext() {
-        this.currentState = TimeStateFactory.create(TimeStateType.NORMAL);
+        this.states = TimeStateFactory.createStates();
+        this.index = 0;
     }
 
-    public TimeState getCurrentState() {
-        return currentState;
+    public TimeState current() {
+        return zoneLockedState != null ? zoneLockedState : states.get(index);
     }
 
-    public String getCurrentStateName() {
-        return currentState.getName();
+    public boolean isZoneLocked() {
+        return zoneLockedState != null;
     }
 
-    public void changeState(TimeStateType type) {
-        this.currentState = TimeStateFactory.create(type);
+    public void update(float delta) {
+        current().update(delta);
     }
 
-    public float applyPlayerSpeed(float baseSpeed) {
-        return baseSpeed * currentState.getPlayerSpeedMultiplier();
+    public void lockToZone(TimeState state) {
+        zoneLockedState = state;
     }
 
-    public float applyEnemySpeed(float baseSpeed) {
-        return baseSpeed * currentState.getEnemySpeedMultiplier();
+    public void clearZoneLock() {
+        zoneLockedState = null;
     }
 
-    public float applyProjectileSpeed(float baseSpeed) {
-        return baseSpeed * currentState.getProjectileSpeedMultiplier();
+    public float playerSpeedMultiplier() {
+        return current().playerSpeedMultiplier();
     }
 
-    public float applyCooldown(float baseCooldown) {
-        return baseCooldown * currentState.getCooldownMultiplier();
+    public float playerProjectileMultiplier() {
+        return current().projectileSpeedMultiplier();
     }
 
-    public boolean isMovementReversed() {
-        return currentState.isMovementReversed();
-    }
-
-    public boolean isInputDelayed() {
-        return currentState.isInputDelayed();
+    public boolean reverseControls() {
+        return current().reverseControls();
     }
 }
