@@ -1,4 +1,5 @@
 package com.chronorift.game.command;
 
-public class GameCommand {
+public interface GameCommand {
+    void execute( float delta);
 }
