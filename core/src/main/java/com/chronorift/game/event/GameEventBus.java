@@ -1,4 +1,4 @@
-package com.chronorift.game.events.event;
+package com.chronorift.game.event;
 
 public class GameEventBus {
 
