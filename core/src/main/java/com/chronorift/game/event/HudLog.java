@@ -1,7 +1,5 @@
 package com.chronorift.game.event;
 
-import com.chronorift.game.core.GameConfig;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -16,7 +14,7 @@ public class HudLog implements GameEventListener {
             return;
         }
         lines.addFirst(event.getMessage());
-        while (lines.size() > GameConfig.MAX_LOG_LINES) {
+        while (lines.size() > 5) {
             lines.removeLast();
         }
     }
