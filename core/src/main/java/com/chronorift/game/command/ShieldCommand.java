@@ -1,4 +1,10 @@
 package com.chronorift.game.command;
 
-public class ShieldCommand {
+import com.chronorift.game.world.GameWorld;
+
+public class ShieldCommand implements GameCommand {
+    @Override
+    public void execute(GameWorld world, float delta) {
+        world.activateShield();
+    }
 }
