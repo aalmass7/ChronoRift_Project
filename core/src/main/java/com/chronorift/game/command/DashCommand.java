@@ -1,4 +1,10 @@
 package com.chronorift.game.command;
 
-public class DashCommand {
+import com.chronorift.game.world.GameWorld;
+
+public class DashCommand implements GameCommand {
+    @Override
+    public void execute(GameWorld world, float delta) {
+        world.dashPlayer();
+    }
 }
