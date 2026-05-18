@@ -1,5 +1,7 @@
 package com.chronorift.game.command;
 
+import com.chronorift.game.world.GameWorld;
+
 public interface GameCommand {
-    void execute( float delta);
+    void execute(GameWorld world, float delta);
 }
