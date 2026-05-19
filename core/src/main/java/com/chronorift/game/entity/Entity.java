@@ -2,6 +2,7 @@ package com.chronorift.game.entity;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.chronorift.game.core.GameAssets;
 
 public abstract class Entity {
     protected final Vector2 position;
@@ -20,4 +21,5 @@ public abstract class Entity {
         return radius;
     }
 
+    public abstract void render(SpriteBatch batch, GameAssets assets);
 }
