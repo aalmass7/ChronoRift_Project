@@ -1,6 +1,8 @@
 package com.chronorift.game.level;
 
 import com.badlogic.gdx.graphics.Color;
+import com.chronorift.game.level.objective.ObjectiveComponent;
+import com.chronorift.game.level.objective.ObjectiveGroup;
 import com.chronorift.game.time.NormalTimeState;
 import com.chronorift.game.time.TimeState;
 
@@ -17,19 +19,20 @@ public class LevelDefinition {
     private final Color accentColor;
     private final boolean bossLevel;
     private final TimeState zoneEffect;
+    private ObjectiveGroup objectives;
 
     public LevelDefinition(TimelineType type, String title, String description, String backgroundPath, String bossName,
                            int waves, int enemiesPerWave, float enemyHpMultiplier, float enemyDamageMultiplier,
                            Color accentColor) {
         this(type, title, description, backgroundPath, bossName, waves, enemiesPerWave, enemyHpMultiplier,
-                enemyDamageMultiplier, accentColor, true, new NormalTimeState());
+            enemyDamageMultiplier, accentColor, true, new NormalTimeState());
     }
 
     public LevelDefinition(TimelineType type, String title, String description, String backgroundPath, String bossName,
                            int waves, int enemiesPerWave, float enemyHpMultiplier, float enemyDamageMultiplier,
                            Color accentColor, boolean bossLevel) {
         this(type, title, description, backgroundPath, bossName, waves, enemiesPerWave, enemyHpMultiplier,
-                enemyDamageMultiplier, accentColor, bossLevel, new NormalTimeState());
+            enemyDamageMultiplier, accentColor, bossLevel, new NormalTimeState());
     }
 
     public LevelDefinition(TimelineType type, String title, String description, String backgroundPath, String bossName,
@@ -95,5 +98,13 @@ public class LevelDefinition {
 
     public TimeState getZoneEffect() {
         return zoneEffect;
+    }
+
+    public ObjectiveGroup getObjectives() {
+        return objectives;
+    }
+
+    public void setObjectives(ObjectiveGroup objectives) {
+        this.objectives = objectives;
     }
 }
