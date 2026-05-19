@@ -2,8 +2,8 @@ package com.chronorift.game.world;
 
 import com.badlogic.gdx.math.Vector2;
 import com.chronorift.game.entity.LivingEntity;
-import com.chronorift.game.entity.enemy.Enemy;
-import com.chronorift.game.entity.projectile.Projectile;
+import com.chronorift.game.entity.Enemy;
+import com.chronorift.game.entity.Projectile;
 import com.chronorift.game.time.TimeContext;
 
 public class GameWorld {
