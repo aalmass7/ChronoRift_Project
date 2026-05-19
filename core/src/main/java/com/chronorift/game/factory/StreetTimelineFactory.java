@@ -7,7 +7,7 @@ import com.chronorift.game.core.GameConfig;
 import com.chronorift.game.entity.Enemy;
 import com.chronorift.game.level.LevelDefinition;
 import com.chronorift.game.level.TimelineType;
-import com.chronorift.game.time.TimeEffectType;
+import com.chronorift.game.time.TimeStateType;
 import com.chronorift.game.time.ZoneTimeState;
 
 public class StreetTimelineFactory implements TimelineFactory {
@@ -24,7 +24,7 @@ public class StreetTimelineFactory implements TimelineFactory {
                 accent, false,
                 new ZoneTimeState("Normal Timeline",
                         "Stable time flow: no chrono penalty, only the door objective.",
-                        1f, 1f, 1f, false, accent, TimeEffectType.NORMAL));
+                        1f, 1f, 1f, false, accent, TimeStateType.NORMAL));
     }
 
     @Override

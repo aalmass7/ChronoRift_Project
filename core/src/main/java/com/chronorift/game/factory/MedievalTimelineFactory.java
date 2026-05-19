@@ -8,7 +8,7 @@ import com.chronorift.game.core.GameConfig;
 import com.chronorift.game.entity.Enemy;
 import com.chronorift.game.level.LevelDefinition;
 import com.chronorift.game.level.TimelineType;
-import com.chronorift.game.time.TimeEffectType;
+import com.chronorift.game.time.TimeStateType;
 import com.chronorift.game.time.ZoneTimeState;
 
 public class MedievalTimelineFactory implements TimelineFactory {
@@ -28,7 +28,7 @@ public class MedievalTimelineFactory implements TimelineFactory {
                 accent, true,
                 new ZoneTimeState("Slow Motion Timeline",
                         "Roots and unstable time drag the player; enemies react better inside their native zone.",
-                        0.72f, 1.10f, 0.78f, false, accent, TimeEffectType.SLOW));
+                        0.72f, 1.10f, 0.78f, false, accent, TimeStateType.SLOW_MOTION));
     }
 
     @Override

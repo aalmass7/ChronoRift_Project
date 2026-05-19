@@ -101,7 +101,21 @@ public class Player extends LivingEntity {
         }
     }
 
-
+    public void shoot(Vector2 target, GameWorld world) {
+        if (fireCooldown > 0f) {
+            return;
+        }
+        updateFacing(target);
+        boolean ultimate = toolbelt.overdriveActive();
+        float damage = baseDamage * currentStats().damageMultiplier();
+        float projectileSpeed = ultimate ? 680f : 560f;
+        float projectileRadius = ultimate ? GameConfig.PROJECTILE_RADIUS * 1.45f : GameConfig.PROJECTILE_RADIUS;
+        Vector2 velocity = new Vector2(facing).scl(projectileSpeed * world.getTimeContext().playerProjectileMultiplier(toolbelt));
+        world.spawnProjectile(new Projectile(new Vector2(position), velocity, projectileRadius, damage,
+            ProjectileOwner.PLAYER, ultimate ? new Color(1f, 0.05f, 0.05f, 1f) : new Color(0.95f, 0.3f, 0.25f, 1f)));
+        fireCooldown = ultimate ? 0.14f : 0.22f;
+        lockAnimation(AnimationState.ATTACK, ultimate ? 0.16f : 0.20f);
+    }
 
     public boolean dash(TimeContext timeContext) {
         if (dashCooldown > 0f || moveIntent.isZero()) {

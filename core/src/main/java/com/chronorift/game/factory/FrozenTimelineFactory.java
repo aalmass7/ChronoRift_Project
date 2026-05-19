@@ -9,7 +9,8 @@ import com.chronorift.game.entity.BossAbilityType;
 import com.chronorift.game.entity.Enemy;
 import com.chronorift.game.level.LevelDefinition;
 import com.chronorift.game.level.TimelineType;
-import com.chronorift.game.time.FreezeTimeState;
+import com.chronorift.game.time.FrozenTimeState;
+
 
 public class FrozenTimelineFactory implements TimelineFactory {
     private final EnemyPrototype grunt = new EnemyPrototype(GameConfig.ENEMY_RADIUS, 88f, 4f, "Frostbound Soldier",
@@ -26,7 +27,7 @@ public class FrozenTimelineFactory implements TimelineFactory {
         return new LevelDefinition(TimelineType.FROZEN, "Level 3: Frozen Timeline",
                 "A glacier arena periodically restricts the outsider. Frost enemies are adapted to this timeline.",
                 "game/bg_ice_floor_hd.png", "Frost Fang", 4, 6, 1.16f, 1.12f,
-                accent, true, new FreezeTimeState());
+                accent, true, new FrozenTimeState());
     }
 
     @Override

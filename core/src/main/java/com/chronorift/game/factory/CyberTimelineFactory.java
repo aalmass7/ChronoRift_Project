@@ -8,7 +8,7 @@ import com.chronorift.game.entity.BossAbilityType;
 import com.chronorift.game.entity.Enemy;
 import com.chronorift.game.level.LevelDefinition;
 import com.chronorift.game.level.TimelineType;
-import com.chronorift.game.time.TimeEffectType;
+import com.chronorift.game.time.TimeStateType;
 import com.chronorift.game.time.ZoneTimeState;
 
 public class CyberTimelineFactory implements TimelineFactory {
@@ -29,7 +29,7 @@ public class CyberTimelineFactory implements TimelineFactory {
                 accent, true,
                 new ZoneTimeState("Reversed Timeline",
                         "Reactor glitch reverses player controls; native cyber enemies keep normal battle logic.",
-                        0.95f, 1.15f, 1.05f, true, accent, TimeEffectType.REVERSED));
+                        0.95f, 1.15f, 1.05f, true, accent, TimeStateType.REVERSED));
     }
 
     @Override
