@@ -49,6 +49,7 @@ public class MenuScreen extends ScreenAdapter {
 
     private void handleInput() {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && activeTab == MenuTab.HOME) {
+            game.startGame();
             return;
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.S)) {
